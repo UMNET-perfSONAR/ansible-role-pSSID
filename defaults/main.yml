@@ -1,0 +1,4 @@
+---
+# defaults file for perfsonar-installer
+
+pSSID_os_update: True
