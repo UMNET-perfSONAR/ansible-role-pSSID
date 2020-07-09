@@ -4,3 +4,29 @@
 - name: Install perfSONAR additional packages
   debug:
     msg: I'm the pSSID installer!
+    
+# tasks file for pSSID
+
+- name: Install perfSONAR additional packages
+  debug:
+    msg: I'm the pSSID installer!
+
+
+- name: install pip
+  apt:
+    name: python3-pip
+    update_cache: yes
+
+- name: Python3 dependencies
+  pip:
+    name:
+     - python-daemon
+     - pika
+     - wifi
+     - ansible
+
+
+- name: clone pSSID repository
+  git: >
+    repo=https://github.com/UMNET-perfSONAR/pSSID.git
+    dest=/usr/local/bin
