@@ -17,6 +17,10 @@
     name: python3-pip
     update_cache: yes
 
+- name: install wireless-tools
+  apt:
+    name: wireless-tools
+
 - name: Python3 dependencies
   pip:
     name:
@@ -29,4 +33,4 @@
 - name: clone pSSID repository
   git: >
     repo=https://github.com/UMNET-perfSONAR/pSSID.git
-    dest=/usr/local/bin
+    dest=/usr/local/bin/pssid
