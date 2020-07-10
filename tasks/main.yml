@@ -23,6 +23,7 @@
 
 - name: Python3 dependencies
   pip:
+    executable: /usr/bin/pip3
     name:
      - python-daemon
      - pika
