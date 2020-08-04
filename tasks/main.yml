@@ -35,3 +35,23 @@
   git: >
     repo=https://github.com/UMNET-perfSONAR/pSSID.git
     dest=/usr/local/bin/pssid
+    
+    
+- name: Create and Change file ownership of pSSID log file
+  file:
+    path: /var/log/pSSID
+    state: touch
+    owner: syslog
+    group: adm
+
+
+- name: Edit rsyslog default config.
+  lineinfile:
+    path: /etc/rsyslog.d/50-default.conf
+    line: local3.*    -/var/log/pSSID
+
+
+- name: restart rsyslog
+  systemd:
+    state: restarted
+    name: rsyslog
