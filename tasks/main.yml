@@ -5,11 +5,11 @@
   debug:
     msg: I'm the pSSID installer!
     
-# tasks file for pSSID
-
-- name: Install perfSONAR additional packages
-  debug:
-    msg: I'm the pSSID installer!
+- name: Install system updates
+  apt:
+    upgrade: dist
+    update_cache: yes
+  ignore_errors: True
 
 
 - name: install pip
