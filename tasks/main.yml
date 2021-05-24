@@ -33,6 +33,13 @@
      - wifi
      - ansible
 
+- name: Remove pSSID directory if exists
+  ansible.builtin.file:
+    path: /usr/local/bin/pssid
+    state: absent
+  ignore_errors: True
+
+
 - name: clone pSSID repository
   git: >
     repo=https://github.com/UMNET-perfSONAR/pSSID.git
