@@ -24,6 +24,10 @@
   apt:
     name: macchanger
 
+- name: install python-setuptools
+  apt:
+    name: python-setuptools
+
 - name: Python3 dependencies
   pip:
     executable: /usr/bin/pip3
