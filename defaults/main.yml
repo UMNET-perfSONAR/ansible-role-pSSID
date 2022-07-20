@@ -1,4 +1,6 @@
 ---
 # defaults file for perfsonar-installer
 
-pSSID_os_update: True
+pssid_update_os: false
+pssid_destination: /opt/pssid
+pssid_repository: https://github.com/RSTdefg/pSSID

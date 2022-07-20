@@ -8,13 +8,12 @@
 - name: Install system updates
   apt:
     upgrade: dist
-    update_cache: yes
   ignore_errors: True
+  when: pssid_update_os
 
 - name: install pip
   apt:
     name: python3-pip
-    update_cache: yes
 
 - name: install wireless-tools
   apt:
@@ -39,16 +38,15 @@
 
 - name: Remove pSSID directory if exists
   ansible.builtin.file:
-    path: /usr/local/bin/pssid
+    path: "{{ pssid_destination }}"
     state: absent
   ignore_errors: True
 
 
 - name: clone pSSID repository
-  git: >
-    repo=https://github.com/UMNET-perfSONAR/pSSID.git
-    dest=/usr/local/bin/pssid
-    
+  git:
+    repo: "{{ pssid_repository }}"
+    dest: "{{ pssid_destination }}"
     
 - name: Create and Change file ownership of pSSID log file
   file:
